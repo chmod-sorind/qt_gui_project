@@ -63,7 +63,11 @@ void MainWindow::on_pushButton_get_dir_clicked()
     {
         QString drive = mItm.absoluteFilePath();
         ui->plainTextEdit->appendPlainText(drive);
-        ui->listWidget->addItem(drive);
+
+        QListWidgetItem *itm = new QListWidgetItem(drive, ui->listWidget);
+        itm->setFlags(itm->flags()| Qt::ItemIsUserCheckable);
+        itm->setCheckState(Qt::Unchecked);
+
 
         if ( drive == "D:/" )
         {
@@ -72,7 +76,10 @@ void MainWindow::on_pushButton_get_dir_clicked()
             {
                 QString directory = mitm.absoluteFilePath();
                 ui->plainTextEdit->appendPlainText(directory);
-                ui->listWidget->addItem(directory);
+
+                QListWidgetItem *itm = new QListWidgetItem(directory, ui->listWidget);
+                itm->setFlags(itm->flags()| Qt::ItemIsUserCheckable);
+                itm->setCheckState(Qt::Unchecked);
             }
         }
     }
