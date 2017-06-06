@@ -15,7 +15,7 @@ public:
     explicit my_dialog(QWidget *parent = 0);
     ~my_dialog();
 
-private:
+public:
     Ui::my_dialog *ui;
 };
 
